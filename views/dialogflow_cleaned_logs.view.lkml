@@ -1,5 +1,5 @@
 view: dialogflow_cleaned_logs {
-  sql_table_name: `Looker_training_rajalakshmi.dialogflow_cleaned_logs`
+  sql_table_name: `qp-qai-training-1-2021-05.Looker_training_prod_rajalakshmi.dialogflow_cleaned_logs`
     ;;
 
   dimension: action {

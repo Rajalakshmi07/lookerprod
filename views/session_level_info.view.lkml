@@ -1,5 +1,5 @@
 view: session_level_info {
-  sql_table_name: `Looker_training_rajalakshmi.session_level_info`
+  sql_table_name: `qp-qai-training-1-2021-05.Looker_training_prod_rajalakshmi.session_level_info`
     ;;
 
   dimension: entry_intent {
