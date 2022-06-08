@@ -32,14 +32,16 @@ view: session_level_info {
     sql: ${TABLE}.session_duration ;;
   }
 
-  dimension: session_id {
-    type: string
-    sql: ${TABLE}.session_id ;;
-  }
-
   dimension: session_minutes {
     type: number
     sql: ${TABLE}.session_minutes ;;
+  }
+
+
+
+  dimension: session_id {
+    type: string
+    sql: ${TABLE}.session_id ;;
   }
 
   dimension_group: session_start {
@@ -47,6 +49,7 @@ view: session_level_info {
     timeframes: [
       raw,
       time,
+      hour_of_day,
       date,
       week,
       month,
@@ -56,8 +59,16 @@ view: session_level_info {
     sql: ${TABLE}.session_start ;;
   }
 
+
   measure: count {
     type: count
     drill_fields: []
   }
+
+  measure: avg_session_duration {
+    type: average
+    sql:COALESCE((${session_duration}/86400.0),0) ;;
+    value_format: "[mm]\" m \"ss\" s\""
+  }
+
 }
